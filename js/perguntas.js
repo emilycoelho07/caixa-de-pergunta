@@ -1,12 +1,13 @@
 export const perguntas = [
     {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, um chat que consegue responder todas as dúvidas que uma pessoa pode ter, ele também gera imagens e áudios hiper-realistas. Qual o primeiro pensamento?",
+        enunciado:'Teste seu conhecimento sobre o fascinante Reino de Gelo"
         alternativas: [
             {
-                texto: "Isso é assustador!",
+                texto: "Qual é o nome da princesa do Reino de Gelo?
+",
                 afirmacao: [
-                    "No início ficou com medo do que essa tecnologia pode fazer.",
-                    "Achou assustador pensar na velocidade na qual a tecnologia está avançando."
+                    "Isolde",
+                    "Elara"
                 ],
                 proxima: 1,
             },
