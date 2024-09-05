@@ -77,4 +77,3 @@ export const perguntas = [
                     "Um buquê de flores",
                     "O espelho da verdade"
                 ],
-                
