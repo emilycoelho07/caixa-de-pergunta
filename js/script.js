@@ -14,8 +14,7 @@ let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
-botaoIniciar.addEventListener('click', iniciaJogo);
-
+// Função para iniciar o jogo
 function iniciaJogo() {
     atual = 0;
     historiaFinal = "";
@@ -23,9 +22,11 @@ function iniciaJogo() {
     caixaPerguntas.classList.remove("mostrar");
     caixaAlternativas.classList.remove("mostrar");
     caixaResultado.classList.remove("mostrar");
+    substituiNome(); // Atualiza os enunciados com o nome
     mostraPergunta();
 }
 
+// Função para mostrar a pergunta atual
 function mostraPergunta() {
     if (atual >= perguntas.length) {
         mostraResultado();
@@ -37,6 +38,7 @@ function mostraPergunta() {
     mostraAlternativas();
 }
 
+// Função para mostrar as alternativas
 function mostraAlternativas() {
     for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
@@ -46,37 +48,41 @@ function mostraAlternativas() {
     }
 }
 
+// Função para processar a resposta selecionada
 function respostaSelecionada(opcaoSelecionada) {
     const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
     historiaFinal += afirmacoes + " ";
     if (opcaoSelecionada.proxima !== undefined) {
         atual = opcaoSelecionada.proxima;
+        mostraPergunta();
     } else {
         mostraResultado();
-        return;
     }
-    mostraPergunta();
 }
 
+// Função para mostrar o resultado final
 function mostraResultado() {
     caixaPerguntas.textContent = `Em 2049, ${nome}`;
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.add("mostrar");
-    botaoJogarNovamente.addEventListener("click", jogaNovamente);
 }
 
+// Função para jogar novamente
 function jogaNovamente() {
     atual = 0;
     historiaFinal = "";
     caixaResultado.classList.remove("mostrar");
-    mostraPergunta();
+    telaInicial.style.display = 'block'; // Volta para a tela inicial
 }
 
+// Função para substituir o nome no enunciado das perguntas
 function substituiNome() {
     for (const pergunta of perguntas) {
         pergunta.enunciado = pergunta.enunciado.replace(/você/g, nome);
     }
 }
 
-substituiNome();
+// Adiciona os ouvintes de eventos
+botaoIniciar.addEventListener('click', iniciaJogo);
+botaoJogarNovamente.addEventListener("click", jogaNovamente);

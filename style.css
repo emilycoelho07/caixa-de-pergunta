@@ -2,7 +2,7 @@
 
 :root {
     --cor-fundo: #220000;
-    --cor-principal: #880202 ;
+    --cor-principal: #880202;
     --cor-secundaria: #df1616;
     --cor-destaque: #e66161;
     --cor-texto: #f7c5cc;
@@ -16,22 +16,25 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    margin: 0; /* Adiciona margem 0 para evitar espaçamento extra no body */
 }
 
-.caixa-principal{
+.caixa-principal {
     background-color: var(--cor-principal);
     width: 90%;
     max-width: 600px;
     text-align: center;
     padding: 20px;
+    border-radius: 10px; /* Adiciona borda arredondada para melhor estilo */
 }
 
-h1, .caixa-perguntas, .caixa-resultado{
+h1, .caixa-perguntas, .caixa-resultado {
     font-family: 'Chakra Petch', sans-serif;
 }
 
 h1 {
     color: var(--cor-destaque);
+    margin-bottom: 20px; /* Adiciona margem inferior ao título para espaçamento */
 }
 
 button {
@@ -40,7 +43,9 @@ button {
     border: none;
     border-radius: 15px;
     padding: 15px;
-    transition: background-color 0.4s;
+    font-size: 1rem; /* Ajusta o tamanho da fonte para melhor legibilidade */
+    cursor: pointer; /* Adiciona cursor pointer para indicar que o botão é clicável */
+    transition: background-color 0.4s, color 0.4s; /* Adiciona transição suave para a cor do texto */
 }
 
 button:hover {
@@ -48,15 +53,23 @@ button:hover {
     color: var(--cor-principal);
 }
 
-.caixa-resultado{
+.caixa-perguntas {
+    display: none; /* Oculta as perguntas inicialmente */
+}
+
+.caixa-perguntas.mostrar {
+    display: block; /* Mostra as perguntas quando a classe mostrar é adicionada */
+}
+
+.caixa-resultado {
     display: none;
 }
 
-.caixa-resultado.mostrar{
+.caixa-resultado.mostrar {
     display: block;
 }
 
-.caixa-alternativas{
+.caixa-alternativas {
     display: flex;
     flex-direction: column;
     gap: 10px;
